@@ -246,12 +246,13 @@ singleuser:
     JUPYTER_GATEWAY_URL: http://10.182.249.51:32101
     JUPYTER_GATEWAY_REQUEST_TIMEOUT: "120"
   lifecycleHooks: {}
-  initContainers: [
-    \n  - name: init-copyhome\n    image:
-      elyra:1.2.2\n    command: ['sh', '-c', 'ls -la /home/* && cd /home/jovyan/ &&
-      if [ ! -f /home/jovyan2/copycomplete ]; then cp -Rp .* /home/jovyan2/; touch /home/jovyan2/copycomplete;
-      fi']\n    volumeMounts:\n    - mountPath: /home/jovyan2\n      name: volume-{username}{servername}\n  
-  ]
+  initContainers: 
+    - name: init-copyhome
+      image: elyra:1.2.2
+      command: ['sh', '-c', 'ls -la /home/* && cd /home/jovyan/ && if [ ! -f /home/jovyan2/copycomplete ]; then cp -Rp .* /home/jovyan2/; touch /home/jovyan2/copycomplete; fi']
+      volumeMounts:
+        - mountPath: /home/jovyan2
+          name: volume-{username}{servername} 
   extraContainers: []
   uid: 1000
   fsGid: 100
