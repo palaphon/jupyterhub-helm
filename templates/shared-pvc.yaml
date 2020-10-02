@@ -14,5 +14,4 @@ spec:
   {{- if typeIs "string" .shared-pvc.storageClassName }}
   storageClassName: {{ .Values.shared-pvc.storageClassName | quote }}
   {{- end }}
-  
- {{- end }}
+{{- end }}

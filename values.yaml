@@ -354,14 +354,12 @@ prePuller:
       name: gcr.io/google_containers/pause-ppc64le
       tag: '3.2'
 
-
 ingress:
   enabled: false
   annotations: {}
   hosts: []
   pathSuffix: ''
   tls: []
-
 
 cull:
   enabled: true
@@ -378,7 +376,6 @@ shared-pvc:
   storage: 100Gi
   accessModes:
     - ReadWriteOnce
-
 
 debug:
   enabled: false
