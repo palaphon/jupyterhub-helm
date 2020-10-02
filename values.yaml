@@ -245,7 +245,7 @@ singleuser:
     #GATEWAY_HOST: enterprise-gateway
     JUPYTER_GATEWAY_URL: http://enterprise-gateway:8888
     JUPYTER_GATEWAY_REQUEST_TIMEOUT: "120"
-    JUPYTER_GATEWAY_HTTP_USER: '{username}'
+    JUPYTER_GATEWAY_HTTP_USER: '${JUPYTERHUB_USER}' #JUPYTERHUB_USER=test
   lifecycleHooks: {}
   initContainers: 
     - name: init-copyhome
