@@ -300,7 +300,8 @@ singleuser:
   extraResource:
     limits: {}
     guarantees: {}
-  cmd: export JUPYTER_GATEWAY_HTTP_USER=${JUPYTERHUB_USER} && jupyterhub-singleuser
+  # cmd: export JUPYTER_GATEWAY_HTTP_USER=${JUPYTERHUB_USER} && jupyterhub-singleuser
+  cmd: jupyterhub-singleuser
   defaultUrl: '/lab'
   extraPodConfig: {}
 
