@@ -273,8 +273,8 @@ singleuser:
       volumeNameTemplate: volume-{username}{servername}
       storageAccessModes: [ReadWriteOnce]
   image:
-    name: powerai
-    tag: 'v10.2'
+    name: elyra
+    tag: '1.2.2'
     pullPolicy: IfNotPresent
     # pullSecrets:
     #   - secretName
@@ -295,7 +295,7 @@ singleuser:
     limits: {}
     guarantees: {}
   cmd: jupyterhub-singleuser
-  defaultUrl:
+  defaultUrl: '/lab'
   extraPodConfig: {}
 
 
