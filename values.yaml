@@ -249,7 +249,7 @@ singleuser:
   initContainers: 
     - name: init-copyhome
       image: elyra:1.2.2
-      command: ['sh', '-c', 'ls -la /home/* && cd /home/jovyan/ && if [ ! -f /home/jovyan2/copycomplete ]; then cp -Rp .* /home/jovyan2/; touch /home/jovyan2/copycomplete; fi']
+      command: ['sh', '-c', 'ls -la /home/* && cd /home/jovyan/ && if [ ! -f /home/jovyan2/copycomplete ]; then cp -Rp .* /home/jovyan2/; cd /home/jovyan2/; rm -Rf jovyan2; touch /home/jovyan2/copycomplete; fi']
       volumeMounts:
         - mountPath: /home/jovyan2
           name: volume-{username}{servername} 
@@ -264,8 +264,8 @@ singleuser:
     extraVolumeMounts: []
     static:
       pvcName:
-      subPath: '{username}'
-    capacity: 10Gi
+      subPath: 'shared'
+    capacity: 100Gi
     homeMountPath: /home/jovyan
     dynamic:
       storageClass:
@@ -371,6 +371,13 @@ cull:
   every: 600
   concurrency: 10
   maxAge: 0
+
+shared-pvc:
+  enabled: false
+  storageClass: nfs-client
+  storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
 
 
 debug:
