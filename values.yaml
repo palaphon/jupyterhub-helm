@@ -94,7 +94,7 @@ rbac:
 
 
 proxy:
-  secretToken: ''
+  secretToken: '7bd06dfadf13d830395305c2a6f32c80512d6316136868981260e9c843b1d864'
   deploymentStrategy:
     ## type: Recreate
     ## - JupyterHub's interaction with the CHP proxy becomes a lot more robust
