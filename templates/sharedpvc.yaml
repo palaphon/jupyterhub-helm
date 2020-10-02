@@ -1,0 +1,17 @@
+{{- if .Values.sharedpvc.enabled -}}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    {{- include "jupyterhub.labels" . | nindent 4 }}
+  name: claim-shared
+spec:
+  accessModes:
+    {{- .Values.sharedpvc.accessModes | toYaml | trimSuffix "\n" | nindent 4 }}
+  resources:
+    requests:
+      storage: {{ .Values.sharedpvc.storage | quote }}
+  {{- if typeIs "string" .sharedpvc.storageClassName }}
+  storageClassName: {{ .Values.sharedpvc.storageClassName | quote }}
+  {{- end }}
+{{- end }}

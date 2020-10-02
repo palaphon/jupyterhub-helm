@@ -370,7 +370,7 @@ cull:
   concurrency: 10
   maxAge: 0
 
-shared-pvc:
+sharedpvc:
   enabled: false
   storageClass: nfs-client
   storage: 100Gi
