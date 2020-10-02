@@ -11,7 +11,7 @@ spec:
   resources:
     requests:
       storage: {{ .Values.sharedpvc.storage | quote }}
-  {{- if typeIs "string" .sharedpvc.storageClassName }}
+  {{- if typeIs "string" .Values.sharedpvc.storageClassName }}
   storageClassName: {{ .Values.sharedpvc.storageClassName | quote }}
   {{- end }}
 {{- end }}
