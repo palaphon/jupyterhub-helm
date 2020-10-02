@@ -260,12 +260,17 @@ singleuser:
   storage:
     type: dynamic
     extraLabels: {}
-    extraVolumes: []
-    extraVolumeMounts: []
+    extraVolumes: 
+      - name: sharedpvc
+        persistentVolumeClaim:
+          claimName: claim-shared
+    extraVolumeMounts: 
+      - name: sharedpvc
+        mountPath: /home/jovyan/work/shared/
     static:
       pvcName:
-      subPath: 'shared'
-    capacity: 100Gi
+      subPath: '{username}'
+    capacity: 1Gi
     homeMountPath: /home/jovyan
     dynamic:
       storageClass:
@@ -371,7 +376,7 @@ cull:
   maxAge: 0
 
 sharedpvc:
-  enabled: false
+  enabled: true
   storageClass: nfs-client
   storage: 100Gi
   accessModes:
