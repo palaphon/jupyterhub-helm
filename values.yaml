@@ -242,9 +242,10 @@ singleuser:
   extraLabels:
     hub.jupyter.org/network-access-hub: 'true'
   extraEnv: 
-    GATEWAY_HOST: enterprise-gateway
-    JUPYTER_GATEWAY_URL: http://10.182.249.51:32101
+    #GATEWAY_HOST: enterprise-gateway
+    JUPYTER_GATEWAY_URL: http://enterprise-gateway:8888
     JUPYTER_GATEWAY_REQUEST_TIMEOUT: "120"
+    JUPYTER_GATEWAY_HTTP_USER: 'test'
   lifecycleHooks: {}
   initContainers: 
     - name: init-copyhome
@@ -380,7 +381,7 @@ sharedpvc:
   storageClassName: nfs-client
   storage: 100Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
 
 debug:
   enabled: false
