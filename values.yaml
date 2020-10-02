@@ -377,7 +377,7 @@ cull:
 
 sharedpvc:
   enabled: true
-  storageClass: nfs-client
+  storageClassName: nfs-client
   storage: 100Gi
   accessModes:
     - ReadWriteOnce
