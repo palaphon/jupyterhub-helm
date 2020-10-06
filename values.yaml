@@ -290,7 +290,7 @@ singleuser:
     username:
     email:
     password:
-  startTimeout: 300
+  startTimeout: 3600
   cpu:
     limit:
     guarantee:
